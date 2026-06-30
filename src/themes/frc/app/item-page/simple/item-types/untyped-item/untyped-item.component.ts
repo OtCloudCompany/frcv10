@@ -1,0 +1,71 @@
+import { AsyncPipe } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+} from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { Context } from '../../../../../../../app/core/shared/context.model';
+import { Item } from '../../../../../../../app/core/shared/item.model';
+import { ViewMode } from '../../../../../../../app/core/shared/view-mode.model';
+import { CollectionsComponent } from '../../../../../../../app/item-page/field-components/collections/collections.component';
+import { ThemedMediaViewerComponent } from '../../../../../../../app/item-page/media-viewer/themed-media-viewer.component';
+import { MiradorViewerComponent } from '../../../../../../../app/item-page/mirador-viewer/mirador-viewer.component';
+import { ThemedFileSectionComponent } from '../../../../../../../app/item-page/simple/field-components/file-section/themed-file-section.component';
+import { ItemPageCcLicenseFieldComponent } from '../../../../../../../app/item-page/simple/field-components/specific-field/cc-license/item-page-cc-license-field.component';
+import { ItemPageDateFieldComponent } from '../../../../../../../app/item-page/simple/field-components/specific-field/date/item-page-date-field.component';
+import { FrcGenericItemPageFieldComponent } from 'src/themes/frc/app/custom-apps/frc-generic-item-page-field/frc-generic-item-page-field.component';
+import { ThemedItemPageTitleFieldComponent } from '../../../../../../../app/item-page/simple/field-components/specific-field/title/themed-item-page-field.component';
+import { ItemPageUriFieldComponent } from '../../../../../../../app/item-page/simple/field-components/specific-field/uri/item-page-uri-field.component';
+import { UntypedItemComponent as BaseComponent } from '../../../../../../../app/item-page/simple/item-types/untyped-item/untyped-item.component';
+import { ThemedMetadataRepresentationListComponent } from '../../../../../../../app/item-page/simple/metadata-representation-list/themed-metadata-representation-list.component';
+import { DsoEditMenuComponent } from '../../../../../../../app/shared/dso-page/dso-edit-menu/dso-edit-menu.component';
+import { MetadataFieldWrapperComponent } from '../../../../../../../app/shared/metadata-field-wrapper/metadata-field-wrapper.component';
+import { listableObjectComponent } from '../../../../../../../app/shared/object-collection/shared/listable-object/listable-object.decorator';
+import { ThemedResultsBackButtonComponent } from '../../../../../../../app/shared/results-back-button/themed-results-back-button.component';
+import { ThemedThumbnailComponent } from '../../../../../../../app/thumbnail/themed-thumbnail.component';
+import { ItemPageNavbarComponent } from 'src/themes/frc/app/custom-apps/item-page-navbar/item-page-navbar.component';
+import { FrcAbstractFieldComponent } from 'src/themes/frc/app/custom-apps/frc-abstract-field/frc-abstract-field.component';
+import { UsageMetricsComponent } from 'src/themes/frc/app/custom-apps/usage-metrics/usage-metrics.component';
+import { UsageStatisticsComponent } from 'src/themes/frc/app/custom-apps/usage-statistics/usage-statistics.component';
+import { FrcSummaryComponent } from 'src/themes/frc/app/custom-apps/frc-summary/frc-summary.component';
+import { FrcLawTextComponent } from 'src/themes/frc/app/custom-apps/frc-law-text/frc-law-text.component';
+
+@listableObjectComponent(Item, ViewMode.StandalonePage, Context.Any, 'frc')
+@Component({
+  selector: 'ds-untyped-item',
+  // styleUrls: ['./untyped-item.component.scss'],
+  styleUrls: [
+    '../../../../../../../app/item-page/simple/item-types/untyped-item/untyped-item.component.scss',
+  ],
+  templateUrl: './untyped-item.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    AsyncPipe,
+    CollectionsComponent,
+    DsoEditMenuComponent,
+    FrcGenericItemPageFieldComponent,
+    ItemPageCcLicenseFieldComponent,
+    ItemPageDateFieldComponent,
+    ItemPageNavbarComponent,
+    ItemPageUriFieldComponent,
+    MetadataFieldWrapperComponent,
+    MiradorViewerComponent,
+    RouterLink,
+    ThemedFileSectionComponent,
+    ThemedItemPageTitleFieldComponent,
+    ThemedMediaViewerComponent,
+    ThemedMetadataRepresentationListComponent,
+    ThemedResultsBackButtonComponent,
+    ThemedThumbnailComponent,
+    TranslateModule,
+    FrcAbstractFieldComponent,
+    UsageMetricsComponent,
+    UsageStatisticsComponent,
+    FrcSummaryComponent,
+    FrcLawTextComponent,
+  ],
+})
+export class UntypedItemComponent extends BaseComponent {
+}
