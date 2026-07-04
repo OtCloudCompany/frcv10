@@ -69,3 +69,4 @@ import { FrcLawTextComponent } from 'src/themes/frc/app/custom-apps/frc-law-text
 })
 export class UntypedItemComponent extends BaseComponent {
 }
+
