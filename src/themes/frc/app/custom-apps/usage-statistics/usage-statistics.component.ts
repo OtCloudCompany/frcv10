@@ -7,7 +7,13 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import worldMap from '@highcharts/map-collection/custom/world.geo.json';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbNav,
+  NgbNavContent,
+  NgbNavItem,
+  NgbNavLink,
+  NgbNavOutlet,
+} from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { UsageReport } from 'src/app/core/statistics/models/usage-report.model';
 import * as Highcharts from 'highcharts';
@@ -22,7 +28,16 @@ import { hasValue } from '@dspace/shared/utils/empty.util';
 
 @Component({
   selector: 'ds-usage-statistics',
-  imports: [CommonModule, NgbNavModule, TranslateModule, HighchartsChartModule],
+  imports: [
+    CommonModule,
+    NgbNav,
+    NgbNavContent,
+    NgbNavItem,
+    NgbNavLink,
+    NgbNavOutlet,
+    TranslateModule,
+    HighchartsChartModule,
+  ],
   templateUrl: './usage-statistics.component.html',
   styleUrl: './usage-statistics.component.scss',
 })
@@ -55,8 +70,8 @@ export class UsageStatisticsComponent implements OnInit {
     @Inject(APP_CONFIG) protected appConfig: AppConfig) {
   }
 
-  ngOnInit() {
-    this.Highcharts = this.highchartsService.getHighcharts();
+  async ngOnInit() {
+    this.Highcharts = await this.highchartsService.getHighcharts();
 
     const report = this.usageReportDataService
       .searchStatistics(this.object._links.self.href, 0, 10);
